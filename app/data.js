@@ -14,14 +14,26 @@ export async function getUser(username) {
 }
 
 export async function getRepos(username) {
-	const res = await fetch('https://api.github.com/users/' + username + '/repos', {
-		cache: 'no-store',
-		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
-		next: { revalidate }
-	});
-	return res.json();
-}
+    const repos = [];
+    let page = 1;
+    let fetchMore = true;
 
+    while(fetchMore) {
+        const res = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=100`, {
+            cache: 'no-store',
+            headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },
+        });
+        const data = await res.json();
+        if (data.length > 0) {
+            repos.push(...data);
+            page++;
+        } else {
+            fetchMore = false;
+        }
+    }
+
+    return repos;
+}
 export async function getSocialAccounts(username) {
 	const res = await fetch('https://api.github.com/users/' + username + '/social_accounts', {
 		headers: { Authorization: `Bearer ${process.env.GH_TOKEN}` },

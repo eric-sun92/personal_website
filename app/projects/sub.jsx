@@ -28,7 +28,10 @@ export const Sub = ({ repositories }) => {
     } else {
         correct = games
     }
-            
+
+    repositories.forEach(repo => {
+        console.log(repo.name)
+    })
     const display_repos = repositories.filter((p) => correct.includes(p.name))
 
 	return (
