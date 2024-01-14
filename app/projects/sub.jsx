@@ -13,7 +13,7 @@ export const Sub = ({ repositories }) => {
     const data_structures = []
     // add 474 as Reinforcement learning
     const games = []
-    const full_stack_apps = ["imYale"]
+    const full_stack_apps = ["imYale", "surveyALP"]
     // add yale streamlit, 
 
     let correct;
