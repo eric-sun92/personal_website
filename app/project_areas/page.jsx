@@ -19,7 +19,7 @@ const calSans = LocalFont({
 
 export default function ProjectAreasPage() {
 
-    const project_categories = ["ML Apps", "ML Models", "Full Stack Apps" , "Custom APIs", "Data Structures", "Games"]
+    const project_categories = ["Full Stack Applications", "Machine Learning", "Custom Backend APIs", "Data Structures", "Game Design"]
     return (
         <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
          <body

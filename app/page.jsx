@@ -121,7 +121,9 @@ const UserText = async ({ promise }) => {
 	const user = await promise;
 
 	return (
-		<p>Hi, my name is {user.name || data.displayName}{'. '}{user.bio}</p>
+		<>
+		<p>Hi, my name is Eric Sun.</p>
+		</>
 	);
 };
 

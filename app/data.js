@@ -2,6 +2,8 @@
 const revalidate = 60;
 const HOURS_12 = 60 * 60 * 12;
 
+// User not working anymore
+
 // TODO: Implement option to switch between info for authenticated user and other users.
 export async function getUser(username) {
 	const res = await fetch('https://api.github.com/users/' + username, {
